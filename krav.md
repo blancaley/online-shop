@@ -2,7 +2,7 @@ Version 4
 [] Skapa en checkbox för varje färg som du har använt för dina kläder. Försök lista ut hur du kan visa endast de kläder som har en färg vars checkbox är ifyllda.
 
 Version 3
-[] Skapa en checkbox med label “I am not a robot” som måste vara ifylld för att kunna filtrera kläderna. Om checkboxen inte är ifylld, alerta “Please confirm you’re not a robot!”.
+[x] Skapa en checkbox med label “I am not a robot” som måste vara ifylld för att kunna filtrera kläderna. Om checkboxen inte är ifylld, alerta “Please confirm you’re not a robot!”.
  
 Version 2
 [x] Skapa sedan en filter-knapp som när du klickar på den, skapar en ny lista som du skriver ut i DOM:en, där du endast skriver ut namnen på de objekten som har den valda typen.

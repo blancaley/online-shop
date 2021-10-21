@@ -132,6 +132,8 @@ const filterButton = document.querySelector("#filterButton");
 const resetFilterButton = document.querySelector("#resetFilterButton");
 const categoryOptions = document.querySelectorAll("[name='category']");
 const brandOptions = document.querySelectorAll("[name='brand']");
+const isHumanCheckbox = document.querySelector("#isHumanCheckbox");
+let feedbackMsg;
 
 function show(arr) {
     clearList();
@@ -154,33 +156,54 @@ function filter() {
     let chosenBrand = null;
     let filteredArray;
 
+    const isHuman = checkHuman();
+    // Stop filter function if it's not checked
+    if (!isHuman) return;
+
     // Find selected category
     categoryOptions.forEach(category => {
         if(category.checked) {
             chosenCategory = category.value;
         }
     });
-    //Find selected brand
+    // Find selected brand
     brandOptions.forEach(brand => {
         if(brand.checked) {
             chosenBrand = brand.value;
         }
     });
-    //If both category and brand options are selected filter by category and brand
+    // If both category and brand options are selected filter by category and brand
     if (chosenCategory !== null && chosenBrand !== null) {
         filteredArray = clothes.filter(item => 
             item.category === chosenCategory && item.brand === chosenBrand);
-    //If one category option is selected filter by category
+    // If one category option is selected filter by category
     } else if (chosenCategory !== null) {
         filteredArray = clothes.filter(item => 
             item.category === chosenCategory);
-    //If one brand option is selected filter by brand
+    // If one brand option is selected filter by brand
     } else if (chosenBrand !== null) {
         filteredArray = clothes.filter(item => 
             item.brand === chosenBrand);
     }
 
     show(filteredArray);
+}
+
+function checkHuman() {
+    feedbackMsg = document.querySelector(".feedback-message-human");
+    // If it's checked continue filtering
+    if (isHumanCheckbox.checked) return true;
+    // If there's already message, return false
+    if (feedbackMsg) return false;
+    // If it's unchecked and there's no message, show message
+    if (!isHumanCheckbox.checked && !feedbackMsg) {
+        let imHumanContainer = document.querySelector("#imHumanContainer");
+        feedbackMsg = document.createElement("p");
+        feedbackMsg.classList.add("feedback-message-human");
+        feedbackMsg.innerText = "Please confirm you’re not a robot.";
+        imHumanContainer.appendChild(feedbackMsg);
+        return false;
+    }
 }
 
 function resetFilter() {
@@ -197,6 +220,7 @@ function resetFilter() {
         }
     });
 
+    isHumanCheckbox.checked = false;
     show(clothes);
 }
 
@@ -205,3 +229,9 @@ show(clothes);
 filterButton.addEventListener("click", filter);
 
 resetFilterButton.addEventListener("click", resetFilter);
+
+isHumanCheckbox.addEventListener("change", (e) => {
+    if(e.target.checked) {
+        feedbackMsg?.remove();
+    }
+})
