@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Online shop</h1>
+
+    <div id="filterContainer">
+        <div id=categoryFilter>
+            <legend for="category">Category</legend>
+                <input type="radio" name="category" value="Trench Coat" id="garmentTrenchCoat" />
+                <label for="trenchCoat">Trench Coat</label>
+                <input type="radio" name="category" value="Dress" id="garmentDress" />
+                <label for="dress">Dress</label>
+                <input type="radio" name="category" value="Coat" id="garmentCoat" />
+                <label for="coat">Coat</label>
+                <input type="radio" name="category" value="Skirt" id="garmentSkirt" />
+                <label for="skirt">Skirt</label>
+                <input type="radio" name="category" value="Sweater" id="garmentSweater" />
+                <label for="sweater">Sweater</label>
+                <input type="radio" name="category" value="Sweater" id="garmentSweater" />
+                <label for="sweater">Sweater</label>    
+        </div>
+        <div id=brandFilter>
+            <legend for="brand">Brand</legend>
+            <input type="radio" name="brand" value="Burberry" id="brandBurberry" />
+            <label for="Burberry">Burberry</label>
+            <input type="radio" name="brand" value="Tiger of Sweden" id="brandTigerOfSweden" />
+            <label for="Tiger of Sweden">Tiger of Sweden</label>
+            <input type="radio" name="brand" value="Ted Baker" id="brandTedBaker" />
+            <label for="Ted Baker">Ted Baker</label>
+            <input type="radio" name="brand" value="Max Mara" id="brandMaxMara" />
+            <label for="Max Mara">Max Mara</label>
+            <input type="radio" name="brand" value="Filippa K" id="brandFilippaK" />
+            <label for="Filippa K">Filippa K</label>
+            <input type="radio" name="brand" value="Tommy Hilfiger" id="brandTommyHilfiger" />
+            <label for="Tommy Hilfiger">Tommy Hilfiger</label>
+        </div>
+        <button type="button" name="Filter" id="filterButton">Filter</button>
+        <button type="button" name="resetFilter" id="resetFilterButton">Reset Filter</button>
+    </div>
+
+    <div>
+        <ul id="clothesList"></ul>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
